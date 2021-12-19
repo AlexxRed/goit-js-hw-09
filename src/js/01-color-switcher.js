@@ -4,8 +4,6 @@ const refs = {
     bodyStyle: document.querySelector('body')
 };
 
-console.log(refs.startButton);
-console.log(refs.stopButton);
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
@@ -16,11 +14,15 @@ refs.stopButton.addEventListener('click', onStopButton);
 
 function onStartButton() {
     timerId = setInterval(() => {
-    refs.bodyStyle.style.backgroundColor = getRandomHexColor();
+        if (timerId) {
+            refs.startButton.removeEventListener('click', onStartButton);
+        refs.bodyStyle.style.backgroundColor = getRandomHexColor();
+        console.log(timerId);
+        }; 
     }, 1000);
 };
 
 function onStopButton() {
     clearInterval(timerId);
-    
+    refs.startButton.addEventListener('click', onStartButton);
 }
