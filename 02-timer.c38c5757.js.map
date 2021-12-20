@@ -1,0 +1,1 @@
+{"version":3,"sources":["js/02-timer.js"],"names":["refs","dateInput","document","querySelector","console","log"],"mappings":";AAAA,MAAMA,EAAO,CACTC,UAAWC,SAASC,cAAc,qBAGtCC,QAAQC,IAAIL,EAAKC","file":"02-timer.c38c5757.js","sourceRoot":"../src","sourcesContent":["const refs = {\n    dateInput: document.querySelector('#datetime-picker'),\n\n};\nconsole.log(refs.dateInput);"]}
