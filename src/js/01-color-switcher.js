@@ -37,14 +37,14 @@ refs.stopButton.addEventListener('click', onStopButton);
 // ================= start change color  =================
 
 function onStartButton() {
-    timerId = setInterval(() => {
-        if (timerId) {
-            refs.stopButton.disabled = false;
-            refs.startButton.disabled = 'disabled';
-            refs.startButton.removeEventListener('click', onStartButton);
+    refs.stopButton.disabled = false;
+    refs.startButton.disabled = 'disabled';
+    refs.startButton.removeEventListener('click', onStartButton);
+
+    timerId = setInterval(() => {    
         refs.bodyStyle.style.backgroundColor = getRandomHexColor();
         console.log(timerId);
-        }; 
+        ; 
     }, 1000);
 };
 
@@ -53,6 +53,7 @@ function onStartButton() {
 function onStopButton() {
     refs.startButton.disabled = false;
     refs.stopButton.disabled = true;
-    clearInterval(timerId);
     refs.startButton.addEventListener('click', onStartButton);
+
+    clearInterval(timerId);
 };
