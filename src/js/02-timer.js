@@ -6,6 +6,9 @@ import 'flatpickr/dist/flatpickr.min.css';
 const refs = {
     dateInput: document.querySelector('#datetime-picker'),
     startButton: document.querySelector('[data-start]'),
+  timer: document.querySelector('.timer'),
+  dateFields: document.querySelectorAll('field'),
+    daysValue: document.querySelector('[data-days]'),
 };
 console.log(refs.dateInput);
 console.log(refs.startButton);
@@ -13,7 +16,11 @@ console.log(refs.startButton);
 // refs.dateInput.type = 'date';
 refs.startButton.disabled = true;
 
-
+refs.timer.style.display = 'flex';
+refs.dateFields.forEach(field => {
+  field.style.display = 'block'
+  field.style.justifyContent = 'flex-wrap';
+})
 
 const flatpickrOptions = {
   enableTime: true,

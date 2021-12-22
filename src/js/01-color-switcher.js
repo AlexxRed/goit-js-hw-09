@@ -9,6 +9,7 @@ const refs = {
 
 // ================== basic style  ==================
 refs.stopButton.disabled = true;
+let timerId = null;
 
 refs.bodyStyle.style.display = 'flex';
 refs.bodyStyle.style.justifyContent = 'center';
