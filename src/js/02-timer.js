@@ -19,13 +19,14 @@ const refs = {
 
 // ================== basic style  ==================
 // refs.dateInput.type = 'date';
-//  refs.dateInput.disabled = false;
+// refs.dateInput.disabled = false;
 refs.startButton.disabled = true;
 
 refs.startButton.style.paddingTop = '7px';
 refs.startButton.style.paddingBottom = '6px';
 refs.startButton.style.fontSize = '24px';
-refs.startButton.style.textAlign = 'center'
+refs.startButton.style.textAlign = 'center';
+refs.startButton.style.cursor = 'pointer'
 
 refs.dateInput.style.padding = '6px';
 refs.dateInput.style.fontSize = '25px';
@@ -44,6 +45,28 @@ refs.timerLable.forEach(lable => {
   lable.style.display = 'block';
 })
 
+// ================== Notiflix  init ==================
+
+Notify.init({
+width: '700px',
+position: 'right-top',
+closeButton: false,
+distance: '10px',
+opacity: 5,
+borderRadius: '5px',
+rtl: false,
+timeout: 2000,
+messageMaxLength: 110,
+backOverlay: false,
+backOverlayColor: 'rgba(0,0,0,0.9)',
+plainText: true,
+showOnlyTheLastOne: true,
+clickToClose: true,
+pauseOnHover: true,
+zindex: 4001,
+fontFamily: 'Quicksand',
+fontSize: '32px',
+});
 // ================== flatpickr init ==================
 
 let currentTime = null;
@@ -85,7 +108,7 @@ function onStartButton() {
         refs.dateInput.disabled = true;
         refs.startButton.removeEventListener('click', onStartButton);
         refs.startButton.disabled = true;
-        Notify.success('Your timer start');
+        Notify.success('Start countdown');
         timerId = setInterval(() => {
         currentTime = Date.now()
           const deltaTime = selectedUnixTime - currentTime
